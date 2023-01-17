@@ -221,11 +221,13 @@ main .container .left .profile {
 
 .left .sidebar .menu-item:first-child.active {
   border-top-left-radius: var(--card-border-radius);
+  transition-property: none;
   overflow: hidden;
 }
 
 .left .sidebar .menu-item:last-child.active {
   border-bottom-left-radius: var(--card-border-radius);
+  transition-property: none;
   overflow: hidden;
 }
 
@@ -563,6 +565,7 @@ main .container .right {
   padding: 3rem;
   border-radius: var(--card-border-radius);
   width: 50%;
+  box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* FONT SIZE */
@@ -720,6 +723,10 @@ main .container .right {
 
   main .left .btn {
     display: none;
+  }
+
+  .customize-theme .card {
+    width: 96vw;
   }
 }
 

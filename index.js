@@ -159,20 +159,42 @@ const removeActiveBackground = () => {
   })
 }
 
+let lightColorLightness;
+let whiteColorLightness;
+let darkColorLightness;
+
 settingBackgrounds.forEach(background => {
 
   background.addEventListener('click', () => {
     removeActiveBackground()
     if (background.classList.contains('bg-1')) {
-      backgroundSelected = 'hsl(0, 0%, 92%)';
+
+      lightColorLightness = '95%';
+      darkColorLightness = '17%';
+      whiteColorLightness = '100%';
+
     } else if (background.classList.contains('bg-2')) {
-      backgroundSelected = 'hsl(252, 30%, 17%)';
+
+      lightColorLightness = '15%';
+      whiteColorLightness = '20%';
+      darkColorLightness = '95%';
+
     } else if (background.classList.contains('bg-3')) {
-      backgroundSelected = 'hsl(252, 30%, 10%)';
+
+      lightColorLightness = '0%';
+      whiteColorLightness = '10%';
+      darkColorLightness = '95%';
+
     }
     addActiveAttribut(background)
-    root.style.setProperty('--color-light', backgroundSelected)
+    changeBackground();
 
     // document.querySelector('html').style.background = colorSelected;
   })
 })
+
+const changeBackground = () => {
+  root.style.setProperty('--light-color-lightness', lightColorLightness)
+  root.style.setProperty('--white-color-lightness', whiteColorLightness)
+  root.style.setProperty('--dark-color-lightness', darkColorLightness)
+}
